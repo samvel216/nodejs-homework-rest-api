@@ -1,25 +1,28 @@
 const express = require('express')
-
+const wrapper = (ctrl) => {
+  const func = async (req, res, next) => {
+    try {
+      await ctrl(req, res, next);
+    } catch (error) {
+      next(error);
+    }
+  };
+  return func;
+};
 const router = express.Router()
 
-router.get('/', async (req, res, next) => {
-  res.json({ message: 'template message' })
-})
+const ctrl = require("../../serverFunc/index");
 
-router.get('/:contactId', async (req, res, next) => {
-  res.json({ message: 'template message' })
-})
+router.get('/', wrapper(ctrl.getAll));
 
-router.post('/', async (req, res, next) => {
-  res.json({ message: 'template message' })
-})
+router.get('/:id', wrapper(ctrl.getById));
 
-router.delete('/:contactId', async (req, res, next) => {
-  res.json({ message: 'template message' })
-})
+router.post('/',  wrapper(ctrl.add));
 
-router.put('/:contactId', async (req, res, next) => {
-  res.json({ message: 'template message' })
-})
+router.delete('/:id', wrapper(ctrl.deleteByld))
+
+router.put('/:id', wrapper(ctrl.updateByld))
+
+router.patch("/:id/favorite", wrapper(ctrl.updateStatusContact))
 
 module.exports = router
