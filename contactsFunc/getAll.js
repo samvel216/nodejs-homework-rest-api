@@ -1,6 +1,6 @@
 const {Contact} = require("../models/contact");
 
-const RequestError = require("../ErrorAndValidate/RequestError");
+const RequestError = require("../middlewares/RequestError");
 
  const getAll = async (req, res) => {
         const result = await Contact.find({});

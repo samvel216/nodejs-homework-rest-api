@@ -1,6 +1,6 @@
 const {Contact} = require("../models/contact");
 
-const addStatusSchema = require("../ErrorAndValidate/JoiStatusValidate");
+const addStatusSchema = require("../middlewares/JoiStatusValidate");
 
 const updateStatusContact = async (req, res, next) => {
        const {error} = addStatusSchema.validate(req.body);
