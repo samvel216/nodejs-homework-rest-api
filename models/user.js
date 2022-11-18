@@ -12,7 +12,10 @@ const userSchema = Schema({
         type: String,
         required: [true, 'Email is required'],
         unique: true,
-      }
+      },
+      avatarURL: {
+       type: String,
+      },
       // },
       // subscription: {
       //   type: String,
