@@ -11,7 +11,7 @@ const wrapper = (ctrl) => {
 };
 const router = express.Router()
 
-const ctrl = require("../../serverFunc/index");
+const ctrl = require("../../contactsFunc/index");
 
 router.get('/', wrapper(ctrl.getAll));
 

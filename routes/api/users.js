@@ -1,7 +1,7 @@
 const express = require('express');
-const auth = require("../../ErrorAndValidate/auth");
-const  wrapper = require("../../ErrorAndValidate/wrapper")
-const upload = require("../../ErrorAndValidate/upload")
+const auth = require("../../middlewares/auth");
+const  wrapper = require("../../middlewares/wrapper")
+const upload = require("../../middlewares/upload")
 
 const router = express.Router()
 const ctrl = require("../../UsersFunk/index");

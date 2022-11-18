@@ -1,7 +1,7 @@
 const express = require('express')
 
 const ctrl = require("../../authFunk/index")
-const wrapper = require("../../ErrorAndValidate/wrapper");
+const wrapper = require("../../middlewares/wrapper");
 
 const router = express.Router();
 router.post('/register', wrapper(ctrl.register));
