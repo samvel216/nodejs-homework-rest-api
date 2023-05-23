@@ -6,12 +6,12 @@ const {authorization = ""} = req.headers;
 const [bearer, token] = authorization.split(" ");
 try {
     if (bearer !== "Bearer") {
-        throw new Unauthorized("Це пизда");
+        throw new Unauthorized("Ошибка");
     }
     const {id} = jwt.verify(token, SECRET_KEY);
     const user = await User.findById(id); 
     if (!user) {
-        throw new Unauthorized("Це пизда по id");
+        throw new Unauthorized("неправильный id");
     }
     req.user = user;
     next();
